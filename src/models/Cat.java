@@ -1,5 +1,6 @@
 package src.models;
 
+import src.custom.annotations.RunImmediately;
 import src.custom.annotations.VeryImportant;
 
 @VeryImportant
@@ -12,5 +13,10 @@ public class Cat {
 
     public String getName(){
         return this.name;
+    }
+    
+    @RunImmediately
+    public void getCatStatus(){
+        System.out.println("CAT US HUNGRY!");
     }
 }
