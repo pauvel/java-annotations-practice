@@ -15,7 +15,7 @@ public class Cat {
         return this.name;
     }
     
-    @RunImmediately
+    @RunImmediately(times = 3)
     public void getCatStatus(){
         System.out.println("CAT US HUNGRY!");
     }

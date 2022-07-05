@@ -27,8 +27,14 @@ public class Annotations {
         for(Method method : cat.getClass().getMethods()){
             if(method.isAnnotationPresent(RunImmediately.class)){
                 try {
-                    System.out.println("Invoking: " + method.getName());
-                    method.invoke(cat, (Object[])args);
+                    
+                    RunImmediately annotation = method.getAnnotation(RunImmediately.class);
+                    
+                    for (int i = 0; i < annotation.times(); i++) {
+                        System.out.println("Invoking: " + method.getName() + " "+ (i+1) + " Times" );
+                        method.invoke(cat, (Object[])args);
+                    }
+
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 } catch (IllegalArgumentException e) {
